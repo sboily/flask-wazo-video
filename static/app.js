@@ -26,24 +26,23 @@ var connect = async () => {
       displayName: 'My dialer',
       media: {
         audio: true,
-        video: true,
       }
     }, data.session);
-    phone.on('invite', (sipSession) => {
-      console.log(sipSession);
+    phone.on('registered', (sipSession) => {
+      if (phone.isRegistered()) {
+        phone.on('accepted', () => {
+          room = _room;
+          room.participants.forEach(participantConnected);
+          room.on('participantConnected', participantConnected);
+          room.on('participantDisconnected', participantDisconnected);
+          connected = true;
+          button.innerHTML = 'Leave call';
+          button.disabled = false;
+          updateParticipantCount();
+        });
+        phone.call(data.room);
+      }
     });
-    phone.call(data.room);
-
-       /*Twilio.Video.connect(data.token).then(_room => {
-            room = _room;
-            room.participants.forEach(participantConnected);
-            room.on('participantConnected', participantConnected);
-            room.on('participantDisconnected', participantDisconnected);
-            connected = true;
-            button.innerHTML = 'Leave call';
-            button.disabled = false;
-            updateParticipantCount();
-        });*/
 };
 
 const disconnect = () => {
