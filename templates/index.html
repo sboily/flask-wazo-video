@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <script src="//unpkg.com/@wazo/sdk@0.29.0-rc4/dist/wazo-sdk.js"></script>
+        <script src="//unpkg.com/@wazo/sdk@0.30.0-rc13/dist/wazo-sdk.js"></script>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
@@ -12,10 +12,6 @@
         </form>
         <p id="count"></p>
         <div id="container" class="container"></div>
-        <div id="videos">
-          <video id="local"></video>
-          <video id="remote"></video>
-        </div>
 
         <script src="{{ url_for('static', filename='app.js') }}"></script>
     </body>
