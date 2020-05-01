@@ -25,7 +25,7 @@ var connect = async () => {
   Wazo.Auth.setHost(data.host);
   await Wazo.Auth.validateToken(data.session.token);
 
-  room = await Wazo.Room.connect({ extension: '9010', audio: true, video: true, extra: { username } });
+  room = await Wazo.Room.connect({ extension: data.room, audio: true, video: true, extra: { username } });
   room.on(room.ON_JOINED, () => {
     connected = true;
     updateParticipantCount();
