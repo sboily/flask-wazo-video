@@ -60,6 +60,7 @@ function addLocalVideo() {
   Wazo.createLocalVideoStream().then(stream => {
     var video = document.getElementById('local').firstElementChild;
     video.appendChild(stream.attach());
+    video.style.transform = 'scale(-1, 1)'; 
   });
 }
 
