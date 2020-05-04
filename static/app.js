@@ -58,7 +58,7 @@ const submitButtonHandler = (event) => {
 
 function addLocalVideo() {
   Wazo.createLocalVideoStream().then(stream => {
-    var video = document.getElementById('local').firstChild;
+    var video = document.getElementById('local').firstElementChild;
     video.appendChild(stream.attach());
   });
 }

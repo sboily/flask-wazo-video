@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
     <head>
-        <script src="//unpkg.com/@wazo/sdk@0.30.0-rc14/dist/wazo-sdk.js"></script>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
@@ -10,11 +9,15 @@
             Name: <input type="text" id="username">
             <button id="join_leave">Join call</button>
         </form>
-        <p id="count"></p>
+        <p id="count">Disconnected.</p>
         <div id="container" class="container">
-          <div id="local" class="participant"><div></div><div>Me</div></div>
+          <div id="local" class="participant">
+            <div></div>
+            <div>Me</div>
+	  </div>
         </div>
 
+        <script src="//unpkg.com/@wazo/sdk@0.30.0-rc14/dist/wazo-sdk.js"></script>
         <script src="{{ url_for('static', filename='app.js') }}"></script>
     </body>
 </html>
