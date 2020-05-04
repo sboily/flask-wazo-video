@@ -1,6 +1,6 @@
 # flask-wazo-video
 
-This is a simple web-based video conferencing application using Flask and Wazo Platform.
+This is a simple web-based video conferencing application using Flask and [Wazo Platform](https://wazo-platform.org).
 
 Thanks to Miguel Grinberg for his exemple based on Twilio. Check the source code here: https://github.com/miguelgrinberg/flask-twilio-video.
 
