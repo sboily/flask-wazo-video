@@ -1,6 +1,6 @@
 const usernameInput = document.getElementById('username');
 const button = document.getElementById('join_leave');
-const container = document.getElementById('container');
+const participants = document.getElementById('participants');
 const count = document.getElementById('count');
 var connected = false;
 var room;
@@ -39,8 +39,8 @@ var connect = async () => {
 
 const disconnect = () => {
   room.disconnect();
-  while (container.childNodes.length > 0) {
-    container.removeChild(container.lastChild);
+  while (participants.childNodes.length > 0) {
+    participants.removeChild(participants.lastChild);
   }
   button.innerHTML = 'Join call';
   connected = false;
@@ -91,8 +91,8 @@ const addParticipantDiv = (callId, name) => {
   participant.setAttribute('class', 'participant');
 
   var video = document.createElement('video');
-  video.style.width = '200px';
-  video.style.height = '200px';
+  video.style.width = '240px';
+  video.style.height = '180px';
   participant.appendChild(video);
 
   var label = document.createElement('span');
@@ -100,7 +100,7 @@ const addParticipantDiv = (callId, name) => {
   label.innerHTML = name;
   participant.appendChild(label);
 
-  container.appendChild(participant);
+  participants.appendChild(participant);
   return participant;
 };
 
