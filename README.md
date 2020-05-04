@@ -10,7 +10,7 @@ Thanks to Miguel Grinberg for his exemple based on Twilio. Check the source code
 
 To install the application on your system follow these steps:
 
-1. [Install Wazo Platform](www.wazo-platform.org) It's free software!
+1. [Install Wazo Platform](https://www.wazo-platform.org) It's free software!
 2. Create a room and a user on the Wazo platform UI.
 3. Clone this repository
 4. Create a virtualenv and install the requirements
