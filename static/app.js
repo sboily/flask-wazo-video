@@ -56,12 +56,19 @@ const submitButtonHandler = (event) => {
   }
 };
 
+function addLocalVideo() {
+  Wazo.createLocalVideoStream().then(stream => {
+    var video = document.getElementById('local').firstChild;
+    video.appendChild(stream.attach());
+  });
+}
+
 const participantConnected = (participant) => {
   // check if the participant is not already displayed
-  if (document.getElementById(participant.callId)) {
+  if (document.getElementById(participant.callId) || participant instanceof Wazo.LocalParticipant) {
     return;
   }
-  var div = addParticipantDiv(participant.callId, participant.extra.username || '...');
+  var div = addParticipantDiv(participant.callId, participant.extra.username || participant.name);
 
   participant.streams.forEach(stream => {
     streamSubscribed(div, stream);
@@ -115,4 +122,5 @@ const updateParticipantCount = () => {
   }
 };
 
+addLocalVideo();
 button.addEventListener('click', submitButtonHandler);
